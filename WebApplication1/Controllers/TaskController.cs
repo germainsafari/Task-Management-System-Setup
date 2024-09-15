@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -61,7 +61,7 @@ namespace WebApplication1.Controllers
         {
             var task = taskList.FirstOrDefault(t => t.Id == id);
             if (task == null)
-                return HttpNotFound();
+                return NotFound();
 
             return View(task);
         }
@@ -73,7 +73,7 @@ namespace WebApplication1.Controllers
         {
             var originalTask = taskList.FirstOrDefault(t => t.Id == task.Id);
             if (originalTask == null)
-                return HttpNotFound();
+                return NotFound();
 
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace WebApplication1.Controllers
         {
             var task = taskList.FirstOrDefault(t => t.Id == id);
             if (task == null)
-                return HttpNotFound();
+                return NotFound();
 
             return View(task);
         }
@@ -104,7 +104,7 @@ namespace WebApplication1.Controllers
         {
             var task = taskList.FirstOrDefault(t => t.Id == id);
             if (task == null)
-                return HttpNotFound();
+                return NotFound();
 
             taskList.Remove(task);
             return RedirectToAction("Index");
