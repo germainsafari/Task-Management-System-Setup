@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\HomeController.cs" />
+    <Compile Remove="Views\Task\About.cshtml.cs" />
+    <Compile Remove="Views\Task\Help.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
