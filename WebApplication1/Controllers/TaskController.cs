@@ -36,7 +36,16 @@ namespace WebApplication1.Controllers
 
             return View(tasks.ToList());
         }
-
+        public IActionResult About()
+        {
+            ViewData["Title"] = "About";
+            return View();
+        }
+        public IActionResult Help()
+        {
+            ViewData["Title"] = "Help";
+            return View();
+        }
         // GET: Task/Create
         public ActionResult Create()
         {
