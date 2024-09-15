@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication1.Models.TaskModel>
+
+@{
+    ViewBag.Title = "Task List";
+}
+
+<h2>Task List</h2>
+
+<p>
+    @Html.ActionLink("Create New Task", "Create")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.PrioritySortParm })
+            </th>
+            <th>
+                Assigned User
+            </th>
+            <th>
+                Priority
+            </th>
+            <th>
+                @Html.ActionLink("Creation Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.AssignedUser)</td>
+                <td>@Html.DisplayFor(modelItem => item.Priority)</td>
+                <td>@Html.DisplayFor(modelItem => item.CreationDate)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
